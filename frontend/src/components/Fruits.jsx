@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import api from "../api.js";
-import AddFruitForm from "./AddFruitForm";
+import api from "../../../api.js";
+import AddFruitForm from "./AddFruitForm.jsx";
 
 const FruitList = () => {
   const [fruits, setFruits] = useState([]);
