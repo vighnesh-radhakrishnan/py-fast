@@ -34,5 +34,13 @@ def post_fruits(fruit: Fruit):
     memory_db["fruits"].append(fruit)
     return fruit
 
+@app.patch("/fruits/{fruit_id}", response_model = Fruits)
+def patch_fruits(fruit_id: int, fruit_name: str):
+    Fruits = memory_db["fruits"]
+    for fruit in Fruits:
+        if fruit.id == fruit_id:
+            fruit.name = fruit_name
+    return fruit
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0", port=8000)
